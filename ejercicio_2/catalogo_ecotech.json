@@ -1,0 +1,15 @@
+[
+    {
+        "tipo": "DispositivoEcológico",
+        "modelo": "Termostato Smart",
+        "precio": 350,
+        "stock": 8
+    },
+    {
+        "tipo": "PanelSolar",
+        "modelo": "SolarMax-500",
+        "precio": 1200,
+        "stock": 10,
+        "eficiencia_watts": 500
+    }
+]

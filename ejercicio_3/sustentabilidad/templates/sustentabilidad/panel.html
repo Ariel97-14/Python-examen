@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EcoTech | Sustentabilidad</title>
+<style>
+body{font:18px system-ui;background:#edf4ef;color:#183c30;margin:0;padding:6vw}
+main{max-width:900px;margin:auto}h1{font-size:clamp(2rem,5vw,3.5rem)}
+section{display:flex;gap:20px;flex-wrap:wrap}article{background:white;padding:24px;border-radius:16px;flex:1}
+strong{display:block;font-size:2rem;margin-top:15px}table{width:100%;border-collapse:collapse;margin-top:35px}
+th,td{text-align:left;padding:16px;border-bottom:1px solid #b6ccbf}footer{margin-top:32px;font-size:14px}
+</style>
+</head>
+<body><main>
+<p>ECOTECH SOLUTIONS · PANEL INDUSTRIAL</p>
+<h1>Panel de sustentabilidad</h1>
+<p>Historial de consumos de demostración, acumulado por planta.</p>
+<section>
+<article>Emisiones totales<strong>{{ total_emisiones|floatformat:2 }} kg CO₂</strong></article>
+<article>Consumo total<strong>{{ total_consumo|floatformat:2 }} kWh</strong></article>
+<article>Planta de mayor consumo<strong>{{ planta_top|default:"Sin registros" }}</strong></article>
+</section>
+<table><caption>Consumo acumulado por planta</caption>
+<thead><tr><th scope="col">Planta</th><th scope="col">Consumo (kWh)</th></tr></thead>
+<tbody>{% for planta, consumo in consumos_por_planta.items %}
+<tr><td>{{ planta }}</td><td>{{ consumo|floatformat:2 }}</td></tr>
+{% empty %}<tr><td colspan="2">No hay consumos registrados.</td></tr>{% endfor %}</tbody></table>
+<footer>Factor de emisión utilizado: 0,4 kg CO₂/kWh.</footer>
+</main></body></html>
